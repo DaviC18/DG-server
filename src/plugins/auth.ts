@@ -1,13 +1,11 @@
 import fp from "fastify-plugin";
-import dotenv from "dotenv";
+import { env } from "../env";
 import { FastifyInstance } from "fastify";
 import fastifyJwt from "fastify-jwt";
 
-dotenv.config();
-
 export default fp(async (fastify: FastifyInstance) => {
   fastify.register(fastifyJwt, {
-    secret: process.env.JWT_SECRET || "dev-secret",
+    secret: env.JWT_SECRET || "dev-secret",
   });
 
   fastify.decorate("generateToken", function (payload: object) {

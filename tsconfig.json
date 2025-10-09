@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "node",
     "lib": ["es2022"],
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
     "outDir": "dist",
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "types": ["node"]
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src"]
 }
