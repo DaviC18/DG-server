@@ -1,20 +1,15 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "_version": "22.0.0",
+
   "compilerOptions": {
+    "lib": ["es2023"],
+    "module": "node16",
     "target": "es2022",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "lib": ["es2022"],
+
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "dist",
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "types": ["node"],
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  },
-  "include": ["src"]
+    "moduleResolution": "node16"
+  }
 }
