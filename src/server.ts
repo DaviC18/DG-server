@@ -9,6 +9,8 @@ import {
 import { env } from "./env";
 import { createUserPacient } from "./http/routes/create-pacient";
 import { getPacientUser } from "./http/routes/get-pacient";
+import { createUserDoctor } from "./http/routes/create-doctor";
+import { getDoctorUser } from "./http/routes/get-doctor";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -28,5 +30,7 @@ app.get("/", () => {
 
 app.register(createUserPacient);
 app.register(getPacientUser);
+app.register(createUserDoctor);
+app.register(getDoctorUser);
 
 app.listen({ port: env.PORT || 5432 });
