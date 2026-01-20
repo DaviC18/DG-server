@@ -7,6 +7,8 @@ import {
 	type ZodTypeProvider,
 } from "fastify-type-provider-zod";
 import { env } from "./env";
+import { createUserPacient } from "./http/routes/create-pacient";
+import { getPacientUser } from "./http/routes/get-pacient";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -23,5 +25,8 @@ app.setValidatorCompiler(validatorCompiler);
 app.get("/", () => {
 	return "ok";
 });
+
+app.register(createUserPacient);
+app.register(getPacientUser);
 
 app.listen({ port: env.PORT || 5432 });

@@ -13,7 +13,6 @@
     "db:migrate": "drizzle-kit migrate",
     "dev": "tsx watch src/server.ts"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DaviC18/DG-server.git"
@@ -27,6 +26,7 @@
   "homepage": "https://github.com/DaviC18/DG-server#readme",
   "devDependencies": {
     "@biomejs/biome": "^2.3.11",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^25.0.9",
     "drizzle-kit": "^0.31.8",
     "drizzle-seed": "^0.3.1",
@@ -39,6 +39,7 @@
     "@fastify/multipart": "^9.4.0",
     "@fastify/swagger": "^9.6.1",
     "@fastify/swagger-ui": "^5.2.4",
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",
     "fastify": "^5.7.1",
