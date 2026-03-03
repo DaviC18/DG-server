@@ -1,24 +1,13 @@
 import { db, sql } from "./connections.js";
-import { doctor } from "./schema/user-doctor.js";
-import { pacient } from "./schema/user-pacient.js";
+import { users } from "./schema/users";
 import { reset, seed } from "drizzle-seed";
 
 async function main() {
 	// limpa apenas as duas tabelas que vamos seedar
-	await reset(db, { pacient, doctor });
+	await reset(db, { users });
 
-	// roda o seed só em rooms e questions
-	await seed(db, { pacient, doctor }).refine((f) => ({
-		pacient: {
-			count: 5,
-			columns: {
-				name: f.companyName(),
-				cpf: f.number(),
-				email: f.email(),
-				password: f.string(),
-			},
-		},
-		doctor: {
+	await seed(db, { users }).refine((f) => ({
+		users: {
 			count: 5,
 			columns: {
 				name: f.companyName(),

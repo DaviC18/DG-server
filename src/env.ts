@@ -13,6 +13,7 @@ const envSchema = z.object({
 		.refine((v) => v.startsWith("postgresql://"), {
 			message: "DATABASE_URL deve começar com postgresql://",
 		}),
+	JWT_SECRET_KEY: z.string(),
 });
 
 export const env = envSchema.parse({

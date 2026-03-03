@@ -1,4 +1,3 @@
-import { doctor } from "./user-doctor";
-import { pacient } from "./user-pacient";
+import { users } from "./users";
 
-export const schema = { pacient, doctor };
+export const schema = { users };

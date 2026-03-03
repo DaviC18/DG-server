@@ -7,9 +7,8 @@ import {
 	type ZodTypeProvider,
 } from "fastify-type-provider-zod";
 import { env } from "./env";
-import { createUserPacient } from "./http/routes/create-pacient";
 import { getPacientUser } from "./http/routes/get-pacient";
-import { createUserDoctor } from "./http/routes/create-doctor";
+import { authRoutes } from "./http/routes/auth";
 import { getDoctorUser } from "./http/routes/get-doctor";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
@@ -28,9 +27,9 @@ app.get("/", () => {
 	return "ok";
 });
 
-app.register(createUserPacient);
+app.register(authRoutes);
 app.register(getPacientUser);
-app.register(createUserDoctor);
 app.register(getDoctorUser);
+app.register(require("@fastify/jwt"), { secret: env.JWT_SECRET_KEY });
 
 app.listen({ port: env.PORT || 5432 });
